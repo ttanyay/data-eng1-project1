@@ -45,7 +45,4 @@ _Approach_: Perform a correlation analysis between pizza price and order quantit
 
 _Conclusion_: A negative correlation between pizza price and order quantity of -0.296 was found (not strong, but still negative). Thus, the hypothesis of lower-priced pizzas ordered in higher quantities is confirmed.
 
-Note: the hypothesis testing was aimed to be as efficient as possible within the scope of the scope of data.
-
-Conclusion: A negative correlation between pizza price and order quantity of -0.296 was found (not strong, but still negative). Thus, the hypothesis of lower-priced pizzas ordered in higher quantities is confirmed.
-* The hypothesis testing was aimed to be as efficient as possible within the scope of data.
+Note: the hypothesis testing was aimed to be as efficient as possible within the scope of data.
