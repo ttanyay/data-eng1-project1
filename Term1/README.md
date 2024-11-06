@@ -4,6 +4,8 @@ This repository contains Term Project 1 for the Data Engineering 1 course, invol
 
 ## Operational layer
 This database is a year's worth of sales from a from a fictitious pizza place Plato's Pizza, a Greek-inspired pizzeria.
+Source: [Maven Analytics](https://mavenanalytics.io/challenges/maven-pizza-challenge/be511a47-85fd-4931-8293-c3bffb577199)
+
 The dataset has 4 tables:
 1. The order_details table has 48621 rows containing order details regarding pizza type and order quantity.
 2. The orders table record the datetime indicators of the 21351 orders.
