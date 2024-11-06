@@ -10,6 +10,9 @@ The dataset has 4 tables:
 3. The pizza_types table specifies the category, ingredients information about the 33 different pizza types offered by the pizza place.
 4. The pizzas table has 97 rows containing the pricing details of pizza based on the size and pizza type.
 
+ER diagram of the imported data:
+
+![ER Diagram](https://github.com/ttanyay/data-eng1-project1/blob/main/Term1/pizza_db_eer_diagram.png)
 
 ## Analytics and Results
 Plan of executed analytics:
