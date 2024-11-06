@@ -17,7 +17,8 @@ ER diagram of the imported data:
 ![ER Diagram](https://github.com/ttanyay/data-eng1-project1/blob/main/Term1/pizza_db_eer_diagram.png)
 
 ## Analytics and Results
-Plan of executed analytics:
+The results of the executed analytics were obtained using Triggers, Stored Procedures and Data Mart:
+
 1. **Olive Preference Hypothesis**
 
 _Hypothesis_: Customers prefer pizzas without olives.
