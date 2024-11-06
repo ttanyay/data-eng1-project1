@@ -25,7 +25,7 @@ CREATE TABLE pizzas
 `price` double,
 PRIMARY KEY(pizza_id));
 
-LOAD DATA LOCAL INFILE 'path/input_data/pizzas.csv' 
+LOAD DATA LOCAL INFILE '../input_data/pizzas.csv' 
 INTO TABLE pizzas
 FIELDS TERMINATED BY ',' 
 LINES TERMINATED BY '\n'
@@ -43,7 +43,7 @@ CREATE TABLE pizza_types (
 );
 
 -- Important to character set to latin1 for compatibility
-LOAD DATA LOCAL INFILE 'path/input_data/pizza_types.csv'
+LOAD DATA LOCAL INFILE '../input_data/pizza_types.csv'
 INTO TABLE pizza_types
 CHARACTER SET latin1 
 FIELDS TERMINATED BY ',' 
@@ -59,7 +59,7 @@ CREATE TABLE `pizza_db`.`orders`
 `time` text, 
 PRIMARY KEY(order_id));
 
-LOAD DATA LOCAL INFILE 'path/input_data/orders.csv' 
+LOAD DATA LOCAL INFILE '../input_data/orders.csv' 
 INTO TABLE orders
 FIELDS TERMINATED BY ',' 
 LINES TERMINATED BY '\n'
@@ -79,14 +79,12 @@ CREATE TABLE `pizza_db`.`order_details`
 `quantity` int,
 PRIMARY KEY(order_details_id));
 
-LOAD DATA LOCAL INFILE 'path/input_data/order_details.csv' 
+LOAD DATA LOCAL INFILE '../input_data/order_details.csv' 
 INTO TABLE order_details
 FIELDS TERMINATED BY ',' 
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES 
 (order_details_id, order_id, pizza_id, quantity);
-
-
 -- -----------------------------------------------------------------------
 -- ANALYTICS
 -- -----------------------------------------------------------------------
@@ -94,7 +92,7 @@ IGNORE 1 LINES
 -- 1. Olive Preference Hypothesis
 -- Hypothesis: Customers prefer pizzas without olives
 -- Approach: Compare the total quantity and percentages of pizzas ordered with 
--- and without olives as an ingredient (over the whole year and by months). 
+-- and without olives as an ingredient (by months). 
 
 -- 2. When is the restaurant busiest?
 -- Hypothesis: lunch and dinner time are the busiest. 
@@ -116,7 +114,7 @@ IGNORE 1 LINES
 -- quantity. A negative correlation would support this hypothesis.
 
 -- Comment: the hypothesis testing was aimed to be as efficient as possible 
--- within the scope of the scope of data.
+-- within the scope of data.
 
 
 -- -----------------------------------------------------------------------
@@ -194,7 +192,7 @@ DELIMITER;
 -- Extract is SELECT, Transformation is adding +1 and Loading is INSERT INTO
 
 -- Trigger: 
-DROP TRIGGER IF EXISTS insert_order_and_detail
+DROP TRIGGER IF EXISTS insert_order_and_detail;
 
 DELIMITER //
 
@@ -297,7 +295,7 @@ CREATE PROCEDURE calculate_monthly_revenue(
     OUT total_revenue DOUBLE
 ) 
 BEGIN
--- Calculate the total revenue for the specified month and year-- where orders were placed during working hours
+-- Calculate the total revenue for the specified month where orders were placed during working hours
 	SELECT SUM(price * quantity) INTO total_revenue FROM pizza_order_analysis
 	WHERE MONTH(date) = target_month  AND YEAR(date) = target_year AND working_hours = 1;
     END;
